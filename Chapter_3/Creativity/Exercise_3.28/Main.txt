@@ -1,0 +1,47 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.28 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Describe in detail an algorithm for reversing a singly linked list L using only a
+ *  constant amount of additional space.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 02.12.2020
+ *
+ * */
+
+Algorithm that implemented in Java:
+
+   void reverse(SinglyLinkedList list) {
+           SinglyLinkedList.Node tempHead = list.getHead();
+           SinglyLinkedList.Node tempTail;
+           SinglyLinkedList.Node tempNode;
+           Object value; // to store tail's values during change
+   
+           for(int i=0; i<list.getSize()/2; i++) {
+               tempNode = tempHead;
+               for(int j=i; j< list.getSize() - i - 1; j++) { // loop until arrive tempTail
+                   tempNode = tempNode.getNext(); 
+               }
+   
+               // initialize temp tail
+               tempTail = tempNode;
+   
+               //change temp head and tail's values
+               value = tempTail.getValue();
+               tempTail.setValue(tempHead.getValue());
+               tempHead.setValue(value);
+   
+               //change temp head
+               tempHead = tempHead.getNext();
+           }
+       }
+    
+    
+
+    
+
+
+

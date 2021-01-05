@@ -1,0 +1,20 @@
+/**
+ *
+ * Data Structures and Algorithm with Java - Chapter 3.12 Exercise
+ *
+ * ------------------------------------------------------------------------------
+ * Implement a rotate( ) method in the SinglyLinkedList class, which has semantics
+ * equal to addLast(removeFirst( )), yet without creating any new node.
+ * -------------------------------------------------------------------------------
+ *
+ * @author Mustafa Arinmis
+ * @since 23.11.2020
+ *
+ * */
+  
+  public static void rotateSingly(Singly list) {
+          list.tail.next = list.head;   //point last node  to first one
+          list.head = list.head.next;   //set second node as head
+          list.tail.next.next = null;   //set first's element's next as null, because of its new tail
+          list.tail = list.tail.next;   //set first node as tail
+      }

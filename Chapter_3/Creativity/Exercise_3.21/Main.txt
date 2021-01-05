@@ -1,0 +1,26 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.21 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Suppose you are given an array, A, containing 100 integers that were generated
+ *  using the method r.nextInt(10), where r is an object of type java.util.Random.
+ *  Let x denote the product of the integers in A. There is a single number that x will
+ *  equal with probability at least 0.99. What is that number and what is a formula
+ *  describing the probability that x is equal to that number?
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 19.11.2020
+ *
+ * */
+
+'r.nextInt(10)' will return one of the number [0, 9].
+If one of them 0 out of 100 product will be zero.
+Because of its hard to calculate let's calculate
+'probability of non-zero integers in any situation':
+
+P(non of them 0) =  (9/10)^100 =  0.0026 // approximately
+
+We can find 'probability at least one of them is 0' with complement operation:
+P(at least one of them is 0) = 1 - P(non of them) = 1 - (9/10)^100 = 0.9974 // approximately

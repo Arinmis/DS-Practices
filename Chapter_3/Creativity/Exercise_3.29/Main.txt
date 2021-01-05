@@ -1,0 +1,64 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.29 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Suppose you are given two circularly linked lists, L and M. Describe an algorithm
+ *  for telling if L and M store the same sequence of elements (but perhaps with
+ *  different starting points).
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 02.12.2020
+ *
+ * */
+
+Algorithm that implemented in Java:
+
+
+        boolean equals(CircularlyLinkedList L, CircularlyLinkedList M) {
+            if(L.getSize() != M.getSize()) //if they have different size just return false
+                return false;
+
+            CircularlyLinkedList.Node LHead = L.getTail().getNext(); // store L's head to search in M
+            CircularlyLinkedList.Node MHead = M.getTail().getNext(); // store M's head to search in M
+
+            for(int i=0; i<M.getSize(); i++) {
+                //check nodes values are same
+                boolean isMatched = LHead.getValue() == MHead.getValue();
+
+                if(isMatched) { //if they have same element check for others
+                    CircularlyLinkedList.Node tempLHead= LHead; // we should keep last node of MHead
+                    int count = 1;
+                    do{
+                        tempLHead = tempLHead.getNext();
+                        MHead = MHead.getNext();
+
+                        if(tempLHead.getValue() == MHead.getValue())
+                            count++;
+                        else
+                            break;
+
+                        if(count == M.getSize())
+                            return true;
+                    }while(true);
+                }
+                else{
+                    MHead = MHead.getNext(); // if LHead does not match MHead look for next node of MHead
+                }
+
+                if(isMatched){ // if they match one element but no all reset MHead
+                    MHead = M.getTail().getNext();
+                }
+            }
+            return false;
+        }
+
+
+
+
+
+
+
+
+

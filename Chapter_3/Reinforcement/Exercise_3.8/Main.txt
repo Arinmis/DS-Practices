@@ -1,0 +1,37 @@
+/**
+ *
+ * Data Structures and Algorithm with Java - Chapter 3.8 Exercise
+ *
+ * ------------------------------------------------------------------------------
+ * Describe a method for finding the middle node of a doubly linked list with header
+ * and trailer sentinels by “link hopping,” and without relying on explicit knowledge
+ * of the size of the list. In the case of an even number of nodes, report the node
+ * slightly left of center as the “middle.” What is the running time of this method?
+ * -------------------------------------------------------------------------------
+ *
+ * @author Mustafa Arinmis
+ * @since 23.11.2020
+ *
+ * */
+
+  public Node<> getMidNode() {
+    // this method belongs to DoublyLinkedList class
+    DoublyLinkedList.Node tempHead = this.head;
+    DoublyLinkedList.Node tempTail = this.tail;
+
+    while(true) {
+
+        if(this.isEmpty) // list contain no element
+            return null;
+
+        if(tempHead.quals(tempTail)) // that mean middle node between temp head and tail
+            return tempHead; // that's also mean we have odd number of node
+
+        if(tempHead.next.equals(tempTail)) // temp head and tail are neighbor and there is nothing between them
+            return tempHead;
+
+        tempHead = tempHead.next; //if middle node not found yet
+        tempTail = tempTail.next; // temp head and tail close one more step each 
+    }
+
+  }

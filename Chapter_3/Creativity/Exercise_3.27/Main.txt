@@ -1,0 +1,37 @@
+/**
+ *
+ * Data Structures and Algorithm with Java - Chapter 3.12 Exercise
+ *
+ * ------------------------------------------------------------------------------
+ * Describe in detail how to swap two nodes x and y (and not just their contents) in
+ * a singly linked list L given references only to x and y. Repeat this exercise for the
+ * case when L is a doubly linked list. Which algorithm takes more time?
+ * -------------------------------------------------------------------------------
+ *
+ * @author Mustafa Arinmis
+ * @since 23.11.2020
+ *
+ * */
+
+Swapping x and y in singly linked list:
+  // L: x --> y
+  L.tail.next = L.head //now y point to x
+  L.head.next = null //now x point to null
+
+  Node temp = L.head    //temp node to store head
+  L.head = L.tail   //set x as tail
+  L.tail = temp     //set y as head
+  //L: y --> x
+
+Swapping x and y in doubly linked list:
+    //L: head <--> x <--> y <---> tail (sentinels included)
+    L.tail.prev.prev = L.head
+    L.head.next.next = L.tail
+    L.tail.next = L.head.next
+    L.head.next = L.tail.prev
+    L.tail.prev.next.prev = L.tail.prev
+    L.tail.prev = L.head.next.prev
+
+Swapping doubly linked list has more operation than singly linked list
+so doubly one take more time.
+

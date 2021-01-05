@@ -1,0 +1,25 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.26 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Give an algorithm for concatenating two doubly linked lists L and M, with header
+ *  and trailer sentinel nodes, into a single list K.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 02.12.2020
+ *
+ * */
+
+tempNodeL = L.head.next     // we need temp node that reference to K's head
+while(tempNodeL != L.tail)  // loop until temp become K's tail
+    K.addLast(tempNodeL.element) // add temp nodes value to K 
+    tempNodeL = tempNodeL.next  // go to next node of L
+
+// same steps for M    
+tempNodeM = M.head.next
+while(tempNodeM != M.tail)  
+    K.addLast(tempNodeM.element)
+    tempNodeM = tempNodeM.next
+    

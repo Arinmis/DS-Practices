@@ -1,0 +1,31 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.2 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Describe an algorithm for concatenating two singly linked lists L and M, into a
+ *  single list L' that contains all the nodes of L followed by all the nodes of M.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 23.11.2020
+ *
+ * */
+
+Algorithm:
+
+    SinglyLinkedList L' = new SinglyLinkedList() // create new singly linked list
+
+    Node temp = L.head // create copy of head
+
+    while(temp != null) // until L has next value
+        L'.addLast(temp.value) // add temp node's value
+        temp = temp.next  // go next element of L
+
+    temp = M.head // L has been copied, now M will be copied
+    while(temp != null) // until M has next value
+            L'.addLast(temp.value) // add temp node's value
+            temp = temp.next  // go next element of M
+
+    //After execution this algorithm L' will include all elements of L and M in order
+

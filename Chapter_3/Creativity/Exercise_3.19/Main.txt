@@ -1,0 +1,36 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.19 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Give Java code for performing add(e) and remove(i) methods for the Scoreboard
+ *  class, as in Code Fragments 3.3 and 3.4, except this time, don’t maintain the game
+ *  entries in order. Assume that we still need to keep n entries stored in indices to
+ *  n − 1. You should be able to implement the methods without using any loops, so
+ *  that the number of steps they perform does not depend on n.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 19.11.2020
+ *
+ * */
+
+
+public void add(GameEntry e) {
+    //if board already full place new enrty at random index
+    if(numOfEntries == board.length)
+        board[(int)(Math.random(board.length))] = e;
+    else{ //otherwise place last empty place
+        board[numOfEntries] = e;
+        numOfEntries++;
+    }
+}
+
+
+public GameEntry remove(GameEntry e) {
+    // Always remove the last entry
+    GameEntry temp = board[numOfEntry - 1];
+    board[numOfEntry--] = null;
+
+    return temp;
+}

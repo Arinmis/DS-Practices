@@ -1,0 +1,27 @@
+/**
+ *
+ * Data Structures and Algorithm with Java - Chapter 3.10 Exercise
+ *
+ * ------------------------------------------------------------------------------
+ * Give an implementation of the size() method for the CircularlyLinkedList class,
+ * assuming that we did not maintain size as an instance variable.
+ * -------------------------------------------------------------------------------
+ *
+ * @author Mustafa Arinmis
+ * @since 23.11.2020
+ *
+ * */
+
+  // this method belongs to CircularlyLinkedList class 
+  public int size() {
+    //loop until arrive tail again, and count size in each iteration
+    Node<E> temp = this.tail.next;
+
+    int count = 1; // we started to count from tail
+    while(temp != this.tail){
+        temp = temp.next; // go next node
+        count++;
+    }
+
+    return count;
+  }

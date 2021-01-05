@@ -1,0 +1,38 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.5 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  The removeFirst method of the SinglyLinkedList class includes a special case to
+ *  reset the tail field to null when deleting the last node of a list (see lines 51 and 52
+ *  of Code Fragment 3.15). What are the consequences if we were to remove those
+ *  two lines from the code? Explain why the class would or would not work with
+ *  such a modification.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 20.11.2020
+ *
+ * */
+
+// removeFirst() method which mentioned above
+ public E removeFirst( ) {
+     if (isEmpty( ))
+        return null;
+     E answer = head.getElement( );
+     head = head.getNext( );
+     size−−;
+     if (size == 0)
+        tail = null;
+     return answer;
+ }
+
+Answer: If we remove line 24 and 25 and then if we call removeFirst()
+method when size of singly linked list is 1:
+
+    - reassigning head will be succeed, head will point to null
+    because there is no more element
+
+    - Because we have only one element in the begging, tail also pointed that node
+    when that element removed , tail should point to the null, but it wouldn't work
+    because of our modification.

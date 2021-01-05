@@ -1,0 +1,47 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.13 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  What is the difference between a shallow equality test and a deep equality test
+ *  between two Java arrays, A and B, if they are one-dimensional arrays of type int?
+ *  What if the arrays are two-dimensional arrays of type int?
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 01.12.2020
+ *
+ * */
+
+Answer:
+
+1) If both, A and B are one-dimensional int array
+    - Shallow equality test just check A and B reference to the same array or not. 
+           
+           return A == B;
+
+    - Deep equality test will check each elements of A and B and return whether they
+    have same content or not.
+    
+    for int i=0; i<A.lenght; i++) {
+      if A[i] != B[i]
+          return false; 
+       }
+       return true;
+    
+2) If arrays are two-dimensional
+    - Again shallow equality just check both are pointing same array or not.
+        return A == B;
+        
+    - This time, deep equality testing will compare A's arrays of arrays to B's
+    and if all elements are same return true.
+    
+    
+    for int i=0; i<A.lenght; i++) {
+      for( int k=0; k<A[0].length; k++) {
+        if A[i] != B[i]
+            return false;
+       }
+    }
+    return true;
+    

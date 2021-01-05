@@ -1,0 +1,37 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.16 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Implement the equals( ) method for the DoublyLinkedList class.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 02.12.2020
+ *
+ * */
+
+@Override
+public boolean equals(Object obj) {
+    if(obj == null)
+        return false;
+
+    if(this.getClass != obj.getClass)
+        return false;
+
+    DoublyLinkedList temp = (DoublyLinkedList)obj;
+    
+    // tail and head are sentiments so start checking next node to head
+    Node walkA = this.head.getNext(); 
+    Node walkB = obj.head.getNext();
+
+    while(walkA != this.get.Tail) {
+        if( walkA.getElement() != walkB.getElement())
+            return false;
+
+        walkA = walkA.getNext();
+        walkB = walk.getNext();
+    }
+   
+    return true
+}

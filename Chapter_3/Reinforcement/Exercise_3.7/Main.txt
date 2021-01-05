@@ -1,0 +1,30 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.7 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Consider the implementation of CircularlyLinkedList.addFirst, in Code Frag-
+ *  ment 3.16. The else body at lines 39 and 40 of that method relies on a locally
+ *  declared variable, newest. Redesign that clause to avoid use of any local vari-
+ *  able.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 23.11.2020
+ *
+ * */
+
+  public void addFirst(E e) {
+  // adds element e to the front of the list
+  if (size == 0) {
+     tail = new Node<>(e, null);
+     tail.setNext(tail); // link to itself circularly
+
+  } else {
+  tail.setNext(new Node<>(e, tail.getNext( ))); // adding element without local variable
+
+  }
+
+  size++;
+
+  }

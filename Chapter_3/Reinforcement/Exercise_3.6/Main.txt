@@ -1,0 +1,25 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.2 Exercise
+ *
+ *  -----------------------------------------------------------------
+ *  Give an algorithm for finding the second-to-last node in a singly
+ *  linked list in which the last node is indicated by a null next
+ *  reference.
+ *  -----------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 23.11.2020
+ *
+ * */
+
+Algorithm:
+    //Algorithm will find second last of 'singlyLinked'
+    SinglyLinkedList.Node secondLast = singlyLinked.head; // initializing head
+
+    while (temp.next.next != null) // until two step forward node is not null
+         secondLast = secondLast.next; // go one step
+
+    //after execution of algorithm 'secondLast' will be second
+    //last element of 'singlyLinkedList'
+

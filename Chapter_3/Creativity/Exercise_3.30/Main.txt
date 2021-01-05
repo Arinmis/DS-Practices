@@ -1,0 +1,40 @@
+/**
+ *
+ *  Data Structures and Algorithm with Java - Chapter 3.30 Exercise
+ *
+ *  --------------------------------------------------------------------------------
+ *  Given a circularly linked list L containing an even number of nodes, describe
+ *  how to split L into two circularly linked lists of half the size.
+ *  --------------------------------------------------------------------------------
+ *
+ *  @author Mustafa Arinmis
+ *  @since 04.12.2020
+ *
+ * */
+
+Algorithm that implemented in Java:
+
+    // given parameter L still will be store first half
+    // last half will be returned
+    CircularlyLinkedList splitHalf(CircularlyLinkedList L) {
+            CircularlyLinkedList M = new CircularlyLinkedList();
+            CircularlyLinkedList.Node LNewTail = null;
+            CircularlyLinkedList.Node temp = L.getTail().getNext(); //we will store new L's tail(middle left node)
+
+            //assign L head to reach middle left
+            for(int i=0; i<L.getSize() - 1; i++) {
+
+                if(i == (L.getSize() - 1) / 2)
+                    LNewTail = temp;
+
+                temp = temp.getNext();
+
+                if(i >= (L.getSize() - 1) / 2)
+                    M.addLast(temp.getValue());
+
+            }
+            // remove unnecessary part from L
+            LNewTail.setNext(L.getTail().getNext());
+
+            return M;
+        }
