@@ -74,22 +74,30 @@ public class SinglyLinkedList<T> {
         if(index < 0 || index > this.size)
             throw new IndexOutOfBoundsException(index);
 
-        if(index == 0)
+
+
+        if(index == 0) {
             addFirst(value);
-
-        if(index == size - 1)
+            return;
+        }
+        else if(index == size) {
             addLast(value);
+            return;
+        }
+        else {
 
-        Node tempPrev = null;
-        Node tempNext = head;
-        for(int i=0; i<index; i++) {
-            tempPrev = tempNext;
-            tempNext = tempNext.next;
+            Node tempPrev = null;
+            Node tempNext = head;
+            for (int i = 0; i < index; i++) {
+                tempPrev = tempNext;
+                tempNext = tempNext.next;
+            }
+
+            Node newest = new Node(value, tempNext);
+            tempPrev.setNext(newest);
+            size++;
         }
 
-        Node newest = new Node(value, tempNext);
-        tempPrev.setNext(newest);
-        size++;
     }
 
     /* remove given index and return the removed value */
@@ -100,8 +108,6 @@ public class SinglyLinkedList<T> {
         if(index == 0) {
             return removeFirst();
         }
-        if(index == size - 1)
-            return removeFirst();
 
         Node tempPrev = null;
         Node removedNode = head;
@@ -110,8 +116,13 @@ public class SinglyLinkedList<T> {
             removedNode = removedNode.next;
         }
 
+        if(index == size - 1) {
+            tail = tempPrev;
+            tempPrev.setNext(null);
+        }
+        else
+            tempPrev.setNext(removedNode.getNext());
 
-        tempPrev.setNext(removedNode.getNext());
         size--;
         return (T)removedNode.getValue();
 
@@ -131,6 +142,7 @@ public class SinglyLinkedList<T> {
 
         return answer;
     }
+
 
     @Override
     public String toString() {

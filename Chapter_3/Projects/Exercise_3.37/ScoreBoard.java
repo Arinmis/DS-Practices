@@ -1,6 +1,7 @@
+import javax.swing.text.html.parser.Entity;
 
 public class ScoreBoard {
-    // no need to maintain num entiries, it can be accessed via board length
+    // no need to maintain num entries, it can be accessed via board length
     private SinglyLinkedList<GameEntry> board;
 
     public ScoreBoard() { // top ten score will be in the board
@@ -11,52 +12,30 @@ public class ScoreBoard {
     the smallest will be head and the highest will be is tail */
     public void add(GameEntry entry) {
 
-        int newScore = entry.getScore();
-
         if(board.isEmpty()) { //if board is put the entry
             board.addFirst(entry);
             return;
         }
-        else { //loop through list until less than or equal entry will be found
-            SinglyLinkedList.Node nextNode = board.getHead(); // reference to head for looping
-            SinglyLinkedList.Node prevNode = null; // we need to keep prev node
-            int i=0;                               // to add new entry between prev and next
-            int numEntries = getNumEntries();
-            while(i < numEntries + 1 && i < 10) {
-                if(entry.getScore() <= ((GameEntry)nextNode.getValue()).getScore()) {
-                    if(prevNode == null) {
-                        board.addFirst(entry); // first entry less than or equal to given entry
-                        return;
-                    }else if(i == 10) {
-                        board.addLast(entry); // last entry less than or equal to given entry
-                        return;
-                    }
-                    else { //place between prev and next
-                        board.insert(i, entry);
-                        return;
-                    }
-                }
-                if( getNumEntries() >= 11) { // remove smallest one if there is an element more than 11
-                    board.removeFirst();
-                    return;
-                }
+        else {
+            SinglyLinkedList.Node iterator = board.getHead();
 
-                // update next and prev nodes
-                prevNode = nextNode;
-                nextNode = nextNode.getNext();
-
-                if( nextNode == null) {
-                    board.addLast(entry); //entry has greatest score
-                    if( getNumEntries() >= 11) // remove smallest one if there is an element more than 11
-                        board.removeFirst();
-                    return;
-                }
-                i++;
+            int index = 0;
+            while(iterator != null && entry.compareTo((GameEntry) iterator.getValue()) == 1) { // find target index
+                index++;
+                iterator = iterator.getNext();
             }
 
-
+            board.insert(index, entry); // insert entry
+            check(); // check size of the board
 
         }
+
+    }
+
+    /* check method will maintain size of the board so that will be maximum 10 */
+    private void check() {
+        if(board.getSize()  > 10)
+            board.remove(10); // remove extra game entry
     }
 
     public GameEntry remove(int index) {

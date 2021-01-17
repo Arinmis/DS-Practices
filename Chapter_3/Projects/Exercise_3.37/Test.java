@@ -1,5 +1,3 @@
-import java.util.concurrent.TimeUnit;
-
 /**
  *
  *  Data Structures and Algorithm with Java - Chapter 3.37 Exercise
@@ -17,12 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class Test {
     public static void main(String[] args) throws InterruptedException{
 
-
+        /* add random entries to scoreboard to test it */
         ScoreBoard board = new ScoreBoard();
-        GameEntry entry1 = new GameEntry( "first", 10);
-        GameEntry entry2 = new GameEntry( "second", 20);
-        GameEntry entry3 = new GameEntry( "third", 30);
-        GameEntry fifteen = new GameEntry( "oneAndHalf", 15);
 
 
         for (int i=0; i<2000; i++) {
@@ -35,10 +29,6 @@ public class Test {
             System.out.println("Size: " + board.getNumEntries());
             System.out.println("\n");
         }
-
-        System.out.println(board.remove(2));
-        System.out.println(board.remove(8));
-
 
     }
 }
