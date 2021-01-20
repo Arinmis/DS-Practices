@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  *
- *  Data Structures and Algorithm with Java - Chapter 3.41 Exercise
+ *  Data Structures and Algorithm with Java - Chapter 3.42 Exercise
  *
  *  --------------------------------------------------------------------------------
  *  Design a RandomCipher class as a subclass of the SubstitutionCipher from Exercise
