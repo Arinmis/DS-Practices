@@ -6,7 +6,7 @@
 class CircularlyLinkedList<T> {
 
     /**
-     * static node class which keep integer as a value
+     * static node class which keep generic as a value
      */
     public static class Node<T>{
         private T value;
@@ -14,7 +14,7 @@ class CircularlyLinkedList<T> {
 
         /**
          * Node constructor
-         * @param value store node integer data
+         * @param value store node T data
          * @param next reference of next node
          */
         public Node(T value, Node next) {
@@ -100,7 +100,7 @@ class CircularlyLinkedList<T> {
 
     /**
      * add new node to head of circularly linked list
-     * @param value new node integer value
+     * @param value new node T value
      */
     public void addLast(T value) {
         this.addFirst(value);   // by calling ad first we added node to the head
